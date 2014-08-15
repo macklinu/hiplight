@@ -1,4 +1,4 @@
 #!/bin/sh
 
-source .env
+. .env
 python hiplight.py
