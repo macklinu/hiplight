@@ -1,7 +1,7 @@
 import os
 from pprint import PrettyPrinter
-
 import requests
+import RPi.GPIO as GPIO
 
 
 def main():
@@ -45,6 +45,23 @@ def main():
         current = status[False]
 
     pp.pprint(current)
+
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(11, GPIO.OUT)
+    GPIO.output(11, 1)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.output(13, 1)
+    GPIO.setup(15, GPIO.OUT)
+    GPIO.output(15, 1)
+
+    try:
+        while True:
+            GPIO.output(11, 0)
+            GPIO.output(11, 1)
+            GPIO.output(11, 0)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+
 
 
 if __name__ == '__main__':
