@@ -46,19 +46,14 @@ def main():
 
     pp.pprint(current)
 
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(11, GPIO.OUT)
-    GPIO.output(11, 1)
-    GPIO.setup(13, GPIO.OUT)
-    GPIO.output(13, 1)
-    GPIO.setup(15, GPIO.OUT)
-    GPIO.output(15, 1)
-
     try:
-        while True:
-            GPIO.output(11, 0)
-            GPIO.output(11, 1)
-            GPIO.output(11, 0)
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.output(11, 1)
+        GPIO.setup(13, GPIO.OUT)
+        GPIO.output(13, 0)
+        GPIO.setup(15, GPIO.OUT)
+        GPIO.output(15, 1)
     except KeyboardInterrupt:
         GPIO.cleanup()
 
