@@ -1,43 +1,40 @@
 class Status:
-    def __init__(self):
-        self.map = {
+    def __init__(self, json_response):
+        self.current = None
+        self.options = {
             True: {
                 'status': 'available',
-                'color': 'green'
+                'color': '0 255 0'
             },
             'xa': {
                 'status': 'away',
-                'color': 'yellow'
+                'color': '255 255 0'
             },
             'dnd': {
                 'status': 'do_not_disturb',
-                'color': 'red'
+                'color': '255 0 0'
             },
             False: {
                 'status': 'offline',
-                'color': None
+                'color': '0 0 0'
             }
         }
-        self.current = None
+        self.determine_status(json_response)
 
     def determine_status(self, response):
         if response['presence']:
             presence = response['presence']
             try:
-                self.current = self.map[presence['show']]
+                self.current = self.options[presence['show']]
             except KeyError:
-                self.current = self.map[presence['is_online']]
+                self.current = self.options[presence['is_online']]
 
             try:
-                self.current['message'] = self.map['status']
+                self.current['message'] = self.options['status']
             except KeyError:
                 self.current['message'] = None
         else:
-            self.current = self.map[False]
-        return self
-
-    def get_availability(self):
-        return self.current['status']
-
+            self.current = self.options[False]
+            
     def get_color(self):
         return self.current['color']
