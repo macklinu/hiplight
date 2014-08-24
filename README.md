@@ -14,5 +14,5 @@ export HIPCHAT_EMAIL_ADDRESS=<your HipChat email address>
 Then, just:
 
 ```bash
-./run.sh
+sudo ./run.sh
 ```
