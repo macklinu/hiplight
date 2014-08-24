@@ -34,6 +34,10 @@ class Status:
                 self.current['message'] = None
         else:
             self.current = self.map[False]
+        return self
 
     def get_availability(self):
         return self.current['status']
+
+    def get_color(self):
+        return self.current['color']
