@@ -1,0 +1,42 @@
+{
+  "name": "hiplight",
+  "version": "0.1.0",
+  "description": "HipChat status light",
+  "keywords": [
+    "hipchat",
+    "raspberry pi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macklinu/hiplight.git"
+  },
+  "bugs": "https://github.com/macklinu/hiplight/issues",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Macklin Underdown",
+    "email": "macklinu@gmail.com",
+    "url": "http://mackli.nu"
+  },
+  "dependencies": {
+    "bunyan": "^1.3.5",
+    "dotenv": "^1.1.0",
+    "hipchatter": "^0.2.0",
+    "pi-blaster.js": "0.0.2",
+    "rx": "^2.5.2",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jscs": "^1.6.0",
+    "gulp-mocha": "^2.0.1",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-util": "^3.0.4",
+    "jscs": "^1.13.1",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  }
+}
